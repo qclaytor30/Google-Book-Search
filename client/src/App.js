@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink,} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import React from 'react';
@@ -26,14 +26,14 @@ function App() {
       <Router>
         <>
           <Navbar />
-          <Routes>
+          <Route>
             <Route
               path= '/' element={<SearchBooks />} />
             <Route
               path= '/saved' element={<SavedBooks />} />
             <Route
               path='*' element={<h1 className= 'display-2'>!</h1>} />
-          </Routes>
+          </Route>
         </>
       </Router>
     </ApolloProvider>
