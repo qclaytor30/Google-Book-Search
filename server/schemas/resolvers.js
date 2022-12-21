@@ -4,7 +4,7 @@ const { User } = require('../models');
 
 const resolvers = {
     Query: {
-        me: async (parent, args, context) => {
+        me: async (_parent, _args, context) => {
             if (context.user) {
                 return User.findOne({ _id: context.user._id });
             }
@@ -40,7 +40,7 @@ const resolvers = {
             return updatedUser;
         }
     },
-    removeBook: async (parent, { bookId }, context) => {
+        removeBook: async (parent, { bookId }, context) => {
         const updatedUser = await User.findOneAndUpdate( { _id: context.user._id }, { $pull: { savedBooks: { bookId } } }, { new: true });
         if (!updatedUser) {
             throw new Error("Couldn't find user with this id!");
