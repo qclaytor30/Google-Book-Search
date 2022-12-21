@@ -18,7 +18,6 @@ module.exports = {
       console.log('Invalid token');
     }
 
-    next();
     return req;
   },
   signToken: function ({ username, email, _id }) {
